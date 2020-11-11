@@ -64,7 +64,7 @@ export class FeedComponent implements OnInit {
   }
 
   findByIdTema(){
-    this.temaService.getByidTema(this.idTema).subscribe((resp: Tema) => {
+    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
       this.tema = resp;
     }) 
   }

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Tema } from '../model/Tema';
+import { Component, OnInit } from '@angular/core';
 import { TemaService } from '../service/tema.service';
+import { Tema } from '../model/Tema';
 
 @Component({
   selector: 'app-post-tema',
@@ -16,24 +16,24 @@ export class PostTemaComponent implements OnInit {
   constructor(
     private temaService: TemaService,
     private router: Router
+    
   ) { }
-  
 
   ngOnInit() {
     this.findAllTemas()
   }
 
-  findAllTemas(){
+  findAllTemas() {
     this.temaService.getAllTemas().subscribe((resp: Tema[]) => {
       this.listaTemas = resp
-    } )
+    })
   }
 
-  findByIdTema(){
-    this.temaService.getByidTema(this.tema.id).subscribe((resp: Tema) => {
-      this.tema = resp;
-    }) 
-  }
+ findByIdTema() {
+   this.temaService.getByIdTema(this.tema.id).subscribe((resp: Tema) => {
+     this.tema = resp;
+   })
+ }
 
  cadastrar() {
    if(this.tema.descricao == null) {
