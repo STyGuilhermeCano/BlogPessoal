@@ -23,6 +23,7 @@ export class FeedComponent implements OnInit {
   tema: Tema = new Tema()
   listaTemas: Tema[]
   idTema: number
+  nomeTema: string
 
   constructor(
     private postagemService: PostagemService,
@@ -79,5 +80,15 @@ export class FeedComponent implements OnInit {
       })
     }
   }
+
+  findByNomeTema() {
+    if (this.nomeTema === '') {
+      this.findAllTemas()
+    }else {
+      this.temaService.getByNomeTema(this.nomeTema).subscribe((resp: Tema[]) => {
+        this.listaTemas = resp
+      })
+    }
+  }  
 
 }
